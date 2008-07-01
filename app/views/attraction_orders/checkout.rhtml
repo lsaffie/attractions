@@ -1,0 +1,52 @@
+<%= error_messages_for 'attraction_order' %>
+
+
+
+
+
+<div id="content_checkout">
+
+
+<% form_for :attraction_order, :url => { :action => :save_order } do |form| %>
+
+<div class="checkout_wrapper">
+	<p><div class="checkout_toptext"> Thank you for ordering tickets to some of Toronto's great attractions. The total will be charged to your room folio upon check in. </div></p>
+
+<div id="checkout_left">
+
+	<span class="title">ORDER INFORMATION</span>
+	<!-- <p style="color: green"><%#= flash[:notice] %></p> -->
+	<p><%= error_messages_for 'order' %></p>
+	<p>You've Ordered:</p>
+	<% if @cart.items[0] %>
+		<% for cart in @cart.items %>
+		<div id="cart_name_checkout"><%= cart.quantity %> x <%= cart.name %></div><div id="subtotal_checkout"> Subtotal: <%= number_to_currency(cart.price, :precision => 0) %></div>
+		<% end %>
+		<div id="total_checkout">Total: <%= number_to_currency(@cart.total_price, :precision => 0) %></div>
+	<% end %>
+</div>	
+
+			
+<div class="checkout_right">
+		<span class="title">GUEST INFORMATION</span>
+		<p>Please fill out all the required fields (*)</p>
+		<div class="checkout_name">* Registered Guest Name </div><%= form.text_field :guest_name, :size => 20 %>
+		<div class="checkout_name">* Arrival Date </div><%= form.text_field :arrival_date, :size => 20 %>
+		<div class="checkout_name">* Confirmation Number </div> <%= form.text_field :confirmation_number, :size => 20 %>
+		<div class="checkout_name">* Tel </div><%= form.text_field :telephone, :size => 20 %>
+		<div class="checkout_name">* E-mail </div><%= form.text_field :email, :size => 20 %>
+		<div class="checkout_name">* E-mail Confirmation </div><%= form.text_field :email_confirmation, :size => 20 %>
+</div>
+
+</div>
+</div>
+
+<div class="checkout_submit"><%= image_submit_tag("submit.gif")%></div>
+<div class="checkout_submit"><%= link_to image_tag("continue.jpg"), :action=> 'new'%></div>
+<div class="checkout_submit"><%= link_to image_tag("reset.gif"), {:action=> 'empty_cart'}, :confirm => 'Are you Sure?' %></div>
+
+	
+
+<% end %>
+
+

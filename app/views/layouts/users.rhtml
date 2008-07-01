@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>AttractionOrders: <%= controller.action_name %></title>
+  <%#= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'styles' %>
+</head>
+<body>
+
+
+  <div id="outer">
+	<% if admin? %>	
+		<div id="admin">
+			<%= link_to 'Manage Attractions', '/list' %> |
+			<%= link_to 'View Orders', '/attraction_orders'%> |
+			<%= link_to 'Users', '/Users/list' %> |	
+			<%= link_to 'Logout', '/logout' %>
+		</div>
+	<% end %>
+	<div id="bg">
+	  <div id="top" align="center"></div>
+	  <div id="toptitle">ATTRACTIONS</div>
+	
+	  <div id="body">
+		
+<div id="content">
+		 
+
+
+
+<%= yield  %>
+
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

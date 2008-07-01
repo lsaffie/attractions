@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Mashup Camp Rails Demo</title>
+  </head>
+  
+  <% if @body_tag %>
+    <body <%= @body_tag %>>
+  <% else %>
+    <body>
+  <% end %>
+    <%= @content_for_layout %>
+  </body>
+</html>

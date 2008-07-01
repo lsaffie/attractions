@@ -1,0 +1,38 @@
+<h1>Listing attractions</h1>
+
+<table>
+  <tr>
+  <% #for column in Attraction.content_columns %>
+    <th><%#= column.human_name %></th>
+  <%# end %>
+  </tr>
+  
+<% for attraction in @attractions %>
+  <tr>
+		<!-- <td> <%#= link_to image_tag(attraction.picture, :size => '90x90'), :action => 'show', :id => attraction %></td> -->
+			
+		<%#= link_to image_tag(attraction.public_filename(:thumb)),
+		attraction.public_filename %>
+		<td><%#= link_to image_tag(attraction.public_filename, :size => '90x90'), attraction.public_filename %>
+			<%= image_tag(attraction.public_filename, :size => '90x90') %>
+			</td>
+		
+		
+		<td> <%= attraction.name %></td>
+		<td> <%= number_to_currency(attraction.price_children) %></td>
+		<td> <%= number_to_currency(attraction.price_adult) %></td>
+		<td> <%= number_to_currency(attraction.price_senior) %></td>
+
+    <td><%= link_to 'Show', :action => 'show', :id => attraction %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => attraction %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => attraction }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @attraction_pages.current.previous } if @attraction_pages.current.previous %>
+<%= link_to 'Next page', { :page => @attraction_pages.current.next } if @attraction_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New attraction', :action => 'new' %>

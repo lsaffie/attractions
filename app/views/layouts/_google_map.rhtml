@@ -1,0 +1,78 @@
+<% @body_tag = 'onload="initMap()"' %>
+
+<div id="map" style="width: <%= @gmap[:width] %>px; height: <%= @gmap[:height] %>px"></div>
+<% if @gmap[:locator] %>
+  <hr>
+  <div id="message"></div>
+<% end %> 
+
+<script src="http://maps.google.com/maps?file=api&v=1&key=<%= @gmap[:key] %>" type="text/javascript"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+function initMap() {
+
+  // Create a base icon for all of our markers that specifies the
+    // shadow, icon dimensions, etc.
+    var baseIcon = new GIcon();
+    baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+    baseIcon.iconSize = new GSize(20, 34);
+    baseIcon.shadowSize = new GSize(37, 34);
+    baseIcon.iconAnchor = new GPoint(9, 34);
+    baseIcon.infoWindowAnchor = new GPoint(9, 2);
+    baseIcon.infoShadowAnchor = new GPoint(18, 25);
+ 
+  // Center the map on Cupertino
+  var map = new GMap(document.getElementById("map"));
+  map.addControl(new GLargeMapControl());
+  map.addControl(new GMapTypeControl());
+  map.centerAndZoom(new GPoint(<%= @gmap[:center] %>), <%= @gmap[:zoom] %>);
+     
+  // Creates a marker whose info window displays the given number
+  function createMarker(point, icon_image, text, url) {
+    var icon = new GIcon(baseIcon);
+    if (icon_image && icon_image.length > 0) {
+      icon.image = icon_image;
+    } else { 
+      icon.image = "http://www.google.com/mapfiles/marker.png";
+    } 
+   
+    var marker = new GMarker(point,icon);
+     
+        // Show this marker's index in the info window when it is clicked
+        if (text.length > 0) {
+          if (url.length > 0) {
+              var html = "<a href='" + url + "'>" + text + "</a>";
+            } else { 
+              var html = text;
+            } 
+            html = '<div style="white-space:nowrap;">' + html + '</div>';
+           
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+      }
+    return marker;
+  }
+     
+    GEvent.addListener(map, "click", function(overlay, point) {
+        var latLngStr = 'new GPoint(' + point.x + ', ' + point.y + ');';
+        document.getElementById("message").innerHTML = latLngStr;
+  });
+     
+  <%-
+  n = 1
+  for marker in @gmap[:markers]
+      icon_image = image_path("marker#{n}")
+    n += 1
+  -%>
+      var point = new GPoint(<%=marker[:point]%>);
+      var marker = createMarker(point, "<%= icon_image %>", "<%= marker[:text] %>", "<%= marker[:url] %>");
+      map.addOverlay(marker);
+    <%-
+    end
+    -%>
+ }
+//]]>
+</script>

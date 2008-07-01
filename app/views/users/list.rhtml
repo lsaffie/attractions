@@ -1,0 +1,6 @@
+<% for user in @users %>
+	<p><%= user.login %>
+	<%= link_to 'delete', {:action => 'destroy', :id => user} , :confirm => 'Are you sure?' %> </p>
+<% end %>
+
+<%= link_to 'New', :action => 'new' %>

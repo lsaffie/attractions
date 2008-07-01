@@ -1,0 +1,41 @@
+<h6> Items in Cart </h6>
+<% for cart in @cart.items %>
+<li><%= cart.quantity %> x <%= cart.name %> <%= number_to_currency(cart.price) %></li>
+<% end %>
+<br>
+
+Total Price: <%= number_to_currency(@cart.total_price) %>
+
+<h1> <%= @attraction.name %> </h1>
+<br>
+<%= form_tag :action => "add_attraction_to_cart_c", :id => @attraction %>
+Children Price <%= number_to_currency(@attraction.price_children)  %>
+
+<%#= select_tag('count', @quantities.collect) %>
+<%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %>
+<%= submit_tag "Add to Cart" %>
+<%= end_form_tag %>
+
+<%= form_tag :action => "add_attraction_to_cart_a", :id => @attraction %>
+	Adult Price <%= number_to_currency(@attraction.price_adult) %>
+<%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %>
+<%= submit_tag "Add to Cart" %>
+<%= end_form_tag %>	
+
+<%= form_tag :action => "add_attraction_to_cart_s", :id => @attraction %>
+Senior Price <%= number_to_currency(@attraction.price_senior) %>
+<%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %>
+<%= submit_tag "Add to Cart" %>
+<%= end_form_tag %>
+
+Directions <br>
+
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%= @attraction.map_link %>"> </iframe><br>
+<small><a href="<%= @attraction.map_link %>">View larger map</a></small>
+
+<%= button_to 'Add to Cart', :action => 'add_attraction_to_cart', :id => @attraction %>
+<%= button_to 'Empty Cart', :action => 'empty_cart' %>
+<%= button_to 'Checkout', :action => 'checkout' %>
+
+<%= link_to 'Continue Shopping', :action => 'new' %>

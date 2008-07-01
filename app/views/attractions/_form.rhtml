@@ -1,0 +1,28 @@
+<%= error_messages_for 'attraction' %>
+
+<!--[form:attraction]-->
+<p><label for="attraction_name">Name</label><br/>
+<%= text_field 'attraction', 'name'  %></p>
+
+<p><label for="map_link">Map Link</label><br/>
+<%= text_field 'attraction', 'map_link'  %></p>
+
+<!-- <p><label for="attraction_poto">Attraction Photo</label></p> -->
+<%#= file_field :uploaded_data %>
+
+<p><label for="additional_info">Additional Info</label><br/>
+<%#= text_area 'attraction', 'additional_info'  %>
+<%= textile_editor 'attraction', 'additional_info' -%></p>
+
+<p><label for="price_children">Price Children</label><br/>
+<%= text_field 'attraction', 'price_children'  %></p>
+
+<p><label for="price_adult">Price Adult</label><br/>
+<%= text_field 'attraction', 'price_adult'  %></p>
+
+<p><label for="price_senior">Price Senior</label><br/>
+<%= text_field 'attraction', 'price_senior'  %></p>
+
+
+<!--[eoform:attraction]-->
+

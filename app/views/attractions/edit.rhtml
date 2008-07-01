@@ -1,0 +1,34 @@
+<h1>Editing attraction</h1>
+<!-- ADD MULTIPART -->
+<%# form_tag(:action => 'update', :multipart => true, :id => @attraction) do %>
+<% form_for :attraction, :url => { :id=> @attraction, :action => :update }, :html => { :multipart => true } do |f| %>
+<p>
+	Name: <%= f.text_field :name %>
+</p>
+<p>
+	Additional Info: <%= textile_editor 'attraction', 'additional_info' -%>
+</p>
+<p>
+	Image: <%= f.file_field :uploaded_data %>
+</p>
+<p>
+ 	Map Link: <%= f.text_field :map_link %>
+</p>
+<p>
+	Children Price: <%= f.text_field :price_children %>
+</p>
+
+<p>
+	Adult Price: <%= f.text_field :price_adult %>
+</p>
+<p>
+	Senior Price: <%= f.text_field :price_senior %>
+</p>
+
+  <%#= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+<%= textile_editor_initialize -%>
+
+<%= link_to 'Show', :action => 'show', :id => @attraction %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,12 @@
+<div id="content">
+<p><h1><%= @attraction.name %></h1></p>
+<!-- <%#= image_tag(@attraction.picture, :size => '130x100')%> -->
+<%= link_to image_tag(@attraction.public_filename, :size => "130x100"),
+@attraction.public_filename %>
+<div class="map"><%= link_to image_tag("MAP.gif"), @attraction.map_link, :target => '_new' %></div>
+<td class="comment"><%= textilize(@attraction.additional_info) %>
+</td>
+
+<div class="checkout_submit"><%= link_to image_tag("continue.jpg"), :action=> 'new'%></div>
+
+</div>

@@ -1,0 +1,11 @@
+<%#= @map.div(:width => 493, :height => 300) %>
+
+<%= @loc %>
+<br>
+lat <%= @loc.lat %>
+lng <%= @loc.lng %>
+
+<%= map :center => {@loc.lng.to_f, @loc.lat.to_f}, :locator => true %>
+<%#= map :center => '-79.570297,43.652088' , :locator => true %>
+
+

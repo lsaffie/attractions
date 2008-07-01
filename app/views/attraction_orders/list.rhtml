@@ -1,0 +1,39 @@
+<div id="content">
+
+
+<h1>Listing attraction_orders</h1>
+
+<table id="view_orders">
+  <tr>
+    <th>Guest Name</th>
+    <th>Arrival Date</th>
+    <th>Status</th>
+    <th>Created on</th>
+    <th>Updated on</th>
+    <th>Updated by</th>
+  </tr>
+  
+<% for attraction_order in @attraction_orders %>
+  <tr>
+	<td><%=h attraction_order.guest_name %></td>
+	<td><%=h attraction_order.arrival_date %></td>
+	<td><%=h attraction_order.order_status %></td>	
+	<td><%=h attraction_order.created_on %></td>	
+	<td><%=h attraction_order.updated_on %></td>
+	<td><%=h attraction_order.updated_by %></td>	
+
+    <td><%= link_to 'Show', :action => 'show', :id => attraction_order %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => attraction_order %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => attraction_order }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @attraction_order_pages.current.previous } if @attraction_order_pages.current.previous %>
+<%= link_to 'Next page', { :page => @attraction_order_pages.current.next } if @attraction_order_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New attraction_order', :action => 'new' %>
+
+</div>

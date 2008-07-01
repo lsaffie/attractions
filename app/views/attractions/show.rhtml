@@ -1,0 +1,13 @@
+
+<p><h1> <%= @attraction.name %></h1></p>
+
+<%=  image_tag(@attraction.public_filename, :size => "130x100") %>
+<p>Additional Info: <%= textilize(@attraction.additional_info) %></p>
+<p>Price Adult: <%= number_to_currency(@attraction.price_adult) %></p>
+<p>Price Children: <%= number_to_currency(@attraction.price_children) %></p>
+
+
+
+
+<%= link_to 'Edit', :action => 'edit', :id => @attraction %> |
+<%= link_to 'Back', :action => 'list' %>

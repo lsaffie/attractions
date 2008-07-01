@@ -1,0 +1,18 @@
+<div id="content">
+<h1>Editing attraction_order</h1>
+
+<% form_tag :action => 'update', :id => @attraction_order do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<% form_tag :action => 'status', :id => @attraction_order do %>
+	<p><label for="attraction_order_room_number">Order Status</label><br/>
+	<%= radio_button_tag "order_status", "incomplete" %> Incomplete	<br>
+	<%= radio_button_tag "order_status", "complete" %> Complete <br>	
+	<%= submit_tag 'Update Status'%>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @attraction_order %> |
+<%= link_to 'Back', :action => 'list' %>
+</div>

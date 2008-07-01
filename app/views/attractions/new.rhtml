@@ -1,0 +1,41 @@
+<h1>New attraction</h1>
+
+<% form_for :attraction, :url => { :action => :create }, :html => { :multipart => true } do |f| %>
+	<p>
+		Name: <%= f.text_field :name %>
+	</p>
+	<p>
+		<!-- Additional info: <%#= f.text_area :additional_info, :rows => 4 %>-->
+		Additional Info: <%= textile_editor 'attraction', 'additional_info' -%>
+	</p>
+	<p>
+	 	<!-- Map Link: <%= f.text_area :map_link, :rows => 4 %> -->
+	 	Map Link: <%= f.text_field :map_link %>
+	
+	</p>
+	<p>
+		<!-- Image Path: <%= f.text_field :picture %> -->
+	</p>
+	
+	<p>
+	<label for="attraction_image"> Upload a postcard image</label>
+	<%= f.file_field :uploaded_data %>
+	</p>
+	
+	<p>
+		Children Price: <%= f.text_field :price_children %>
+	</p>
+	
+	<p>
+		Adult Price: <%= f.text_field :price_adult %>
+	</p>
+	<p>
+		Senior Price: <%= f.text_field :price_senior %>
+	</p>
+
+	
+  <%= submit_tag "Create" %>
+<% end %>
+<%= textile_editor_initialize -%> 
+
+<%= link_to 'Back', :action => 'list' %>

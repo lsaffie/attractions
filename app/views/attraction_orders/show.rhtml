@@ -1,0 +1,18 @@
+<div id="content">
+<% for column in AttractionOrder.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @attraction_order.send(column.name) %>
+</p>
+<% end %>
+
+<h6> Attractions Purchased </h6>
+<ul>
+	<% for attraction in @attraction_order.attraction_line_items %>
+	<li><%= attraction.attraction_quantity %> x <%= attraction.attraction_name %> </li>
+	<%= number_to_currency(attraction.attraction_price) %>
+	<% end %>
+</ul>
+
+<%#= link_to 'Edit', :action => 'edit', :id => @attraction_order %> 
+<%= link_to 'Back', :action => 'list' %>
+</div>
