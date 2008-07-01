@@ -19,7 +19,9 @@ class AttractionOrdersController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @attraction_order_pages, @attraction_orders = paginate :attraction_orders, :per_page => 10
+    #@attraction_order_pages, @attraction_orders = paginate :attraction_orders, :per_page => 10
+    @attraction_orders = AttractionOrder.find(:all)
+    @attraction_order_pages = AttractionOrder.find(:all)
   end
 
   def show
