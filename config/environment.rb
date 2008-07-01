@@ -51,6 +51,8 @@ Rails::Initializer.run do |config|
   # end
 
   # See Rails::Configuration for more options
+  config.action_controller.session = { :session_key => "_attraction_session", :secret => "There are more stuffs dreamed of in heaven and earth than your philosophy allows.  Asshole." } 
+  
 end
 
 # Add new mime types for use in respond_to blocks:
