@@ -7,7 +7,7 @@
 <div id="content_checkout">
 
 
-<% form_for :attraction_order, :url => { :action => :save_order } do |form| %>
+<% form_for :attraction_order, @order, :url => { :action => :save_order } do |form| %>
 
 <div class="checkout_wrapper">
 	<p><div class="checkout_toptext"> Thank you for ordering tickets to some of Toronto's great attractions. The total will be charged to your room folio upon check in. </div></p>
