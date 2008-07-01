@@ -53,7 +53,7 @@
 			<%= image_submit_tag("add.gif")%>
 			<%#= end_form_tag %>	
 			
-			<%= form_tag :action => "add_attraction_to_cart_c", :id => attraction %>
+			<%= form_tag :action => "add_attraction_to_cart_c", :id => attraction %><br>
 			Children under 12 Ticket <%= number_to_currency(attraction.price_children, :precision => 0)  %>
 			<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %> 
 			<%= image_submit_tag("add.gif")%>
