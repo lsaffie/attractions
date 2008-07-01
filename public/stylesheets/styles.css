@@ -189,7 +189,7 @@ padding: 20px;
 }
 .checkout_name {
 float: left;
-width: 130px;
+width: 140px;
 height: 20px;
 }
 .submit {
@@ -272,16 +272,16 @@ margin-bottom: 2px;
 float:left;
 background-color: #a1b4c3;
 padding: 20px;
-width: 350px;
+width: 340px;
 margin: 10px 0 10px 0;
 }
 .checkout_right {
 float:left;
 background-color: #a1b4c3;
-width: 350px;
+width: 355px;
 margin: 10px 0 10px 0;
 border-left: 1px solid white;
-padding: 20px;
+padding-left: 20px;
 }
 .checkout_wrapper {
 overflow: hidden;
