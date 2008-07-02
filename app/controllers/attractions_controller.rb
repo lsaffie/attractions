@@ -26,8 +26,8 @@ uses_tiny_mce(:options => {:theme => 'advanced',
          :redirect_to => { :action => :list }
 
   def list
-    @attraction_pages, @attractions = paginate :attractions, :per_page => 10
-    #@attractions = Attraction.find(:all)
+    #@attraction_pages, @attractions = paginate :attractions, :per_page => 10
+    @attractions = Attraction.find(:all)
   end
 
   def show
