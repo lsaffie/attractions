@@ -44,21 +44,28 @@
 <%= link_to("read more...", {:action => "more", :id => attraction}) %> </td>
 			
 			<% form_tag(:action => "add_attraction_to_cart_a", :id => attraction) do %>
-				<td class="ticket">Adult Ticket <%= number_to_currency(attraction.price_adult, :precision => 0) %>
+				<td class="ticket">Adult Ticket <%= number_to_currency(attraction.price_adult) %>
 				<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %>
 				<%= image_submit_tag("add.gif")%>
 			<% end %>
 			
 			<% form_tag(:action => "add_attraction_to_cart_s", :id => attraction) do %>
-				Senior Ticket <%= number_to_currency(attraction.price_senior, :precision => 0) %>
+				Senior Ticket <%= number_to_currency(attraction.price_senior) %>
 				<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %>
 				<%= image_submit_tag("add.gif")%>
 			<% end %>	
 			
 			<% form_tag(:action => "add_attraction_to_cart_c", :id => attraction) do %>
-				Children under 12 Ticket <%= number_to_currency(attraction.price_children, :precision => 0)  %>
+				Children under 12 Ticket <%= number_to_currency(attraction.price_children )  %>
 				<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %> 
 				<%= image_submit_tag("add.gif")%>
+			<% end %>
+			<% if attraction.optional_field_name %>
+				<% form_tag(:action => "add_attraction_to_cart_o", :id => attraction) do %>
+					<%= attraction.optional_field_name %><%= number_to_currency(attraction.optional_field_price )  %>
+					<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %> 
+					<%= image_submit_tag("add.gif")%>
+				<% end %>
 			<% end %>
 			
 	<% end %>

@@ -5,6 +5,10 @@
 <p>Additional Info: <%= textilize(@attraction.additional_info) %></p>
 <p>Price Adult: <%= number_to_currency(@attraction.price_adult) %></p>
 <p>Price Children: <%= number_to_currency(@attraction.price_children) %></p>
+<p>
+	 <%= @attraction.optional_field_name %>:
+	 <%= number_to_currency(@attraction.optional_field_price) %>
+</p>
 
 
 

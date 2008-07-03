@@ -20,9 +20,9 @@
 	<p>You've Ordered:</p>
 	<% if @cart.items[0] %>
 		<% for cart in @cart.items %>
-		<div id="cart_name_checkout"><%= cart.quantity %> x <%= cart.name %></div><div id="subtotal_checkout"> Subtotal: <%= number_to_currency(cart.price, :precision => 0) %></div>
+		<div id="cart_name_checkout"><%= cart.quantity %> x <%= cart.name %></div><div id="subtotal_checkout"> Subtotal: <%= number_to_currency(cart.price) %></div>
 		<% end %>
-		<div id="total_checkout">Total: <%= number_to_currency(@cart.total_price, :precision => 0) %></div>
+		<div id="total_checkout">Total: <%= number_to_currency(@cart.total_price) %></div>
 	<% end %>
 </div>	
 
@@ -33,7 +33,7 @@
 		<div class="checkout_name">* Registered Guest Name </div><%= form.text_field :guest_name, :size => 20 %>
 		<div class="checkout_name">* Arrival Date </div><%= form.date_select :arrival_date %>
 		<div class="checkout_name">* Confirmation Number </div> <%= form.text_field :confirmation_number, :size => 20 %>
-		<div class="checkout_name">* Tel </div><%= form.text_field :telephone, :size => 20 %>
+		<div class="checkout_name">* Tel (xxx-xxx-xxxx)</div><%= form.text_field :telephone, :size => 20 %>
 		<div class="checkout_name">* E-mail </div><%= form.text_field :email, :size => 20 %>
 		<div class="checkout_name">* E-mail Confirmation </div><%= form.text_field :email_confirmation, :size => 20 %>
 </div>

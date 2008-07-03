@@ -24,6 +24,10 @@
 <p>
 	Senior Price: <%= f.text_field :price_senior %>
 </p>
+<p>
+	Optional Field Name: <%= f.text_field :optional_field_name, :size => '15' %><br>
+	Optional Field Price: <%= f.text_field :optional_field_price, :size => '5' %>
+</p>
 
   <%#= render :partial => 'form' %>
   <%= submit_tag 'Edit' %>

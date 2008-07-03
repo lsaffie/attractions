@@ -9,19 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080701215704) do
+ActiveRecord::Schema.define(:version => 20080702220427) do
 
   create_table "attraction_carts", :force => true do |t|
     t.string  "attraction_name"
     t.integer "quantity"
-    t.integer "price"
+    t.float   "price"
   end
 
   create_table "attraction_line_items", :force => true do |t|
     t.integer "attraction_id"
     t.integer "attraction_order_id"
     t.string  "attraction_name"
-    t.integer "attraction_price"
+    t.float   "attraction_price"
     t.integer "attraction_quantity"
   end
 
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20080701215704) do
     t.string   "telephone"
     t.string   "email"
     t.date     "created_on"
-    t.integer  "total_price",                        :default => 0
+    t.float    "total_price",                        :default => 0.0
     t.string   "updated_by"
     t.datetime "updated_on"
   end
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20080701215704) do
     t.string  "picture"
     t.text    "map_link"
     t.text    "links"
-    t.integer "price_children"
-    t.integer "price_adult"
-    t.integer "price_senior"
+    t.float   "price_children"
+    t.float   "price_adult"
+    t.float   "price_senior"
     t.integer "parent_id"
     t.string  "content_type"
     t.string  "filename"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20080701215704) do
     t.integer "size"
     t.integer "width"
     t.integer "height"
+    t.string  "optional_field_name"
+    t.float   "optional_field_price"
   end
 
   create_table "cart_items", :force => true do |t|

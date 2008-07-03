@@ -23,14 +23,19 @@
 	</p>
 	
 	<p>
-		Children Price: <%= f.text_field :price_children %>
+		Children Price: <%= f.text_field :price_children, :size => '5' %>
 	</p>
 	
 	<p>
-		Adult Price: <%= f.text_field :price_adult %>
+		Adult Price: <%= f.text_field :price_adult, :size => '5' %>
 	</p>
 	<p>
-		Senior Price: <%= f.text_field :price_senior %>
+		Senior Price: <%= f.text_field :price_senior, :size => '5' %>
+	</p>
+	<p>
+		Optional Field Name: <%= f.text_field :optional_field_name, :size => '15' %><br>
+		Optional Field Price: <%= f.text_field :optional_field_price, :size => '5' %>
+
 	</p>
 
 	

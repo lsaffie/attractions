@@ -31,6 +31,7 @@ class AttractionOrdersController < ApplicationController
   def new
     @attraction_order = AttractionOrder.new
     attractions_all = Attraction.find(:all)
+    @quantity_option = [1,2,3,4,5,6,7,8,9,10]
     #attractions_selected = Attraction.find(5,23)
 		#attractions_merged = attractions_all - attractions_selected
 		#@attractions = attractions_selected + attractions_merged
@@ -100,6 +101,16 @@ class AttractionOrdersController < ApplicationController
 		@attraction = Attraction.find(params[:id])
 		@price = @attraction.price_senior
 		@type = "senior"
+		@cart.add_attraction(@attraction,@count,@price,@type)
+		redirect_to(:action => 'attraction_description', :id => @attraction)
+	end
+	
+	def add_attraction_to_cart_o
+		@cart = find_attraction_cart
+		@count = Integer(params[:count])
+		@attraction = Attraction.find(params[:id])
+		@price = @attraction.optional_field_price
+		@type = "Optional Field"
 		@cart.add_attraction(@attraction,@count,@price,@type)
 		redirect_to(:action => 'attraction_description', :id => @attraction)
 	end
