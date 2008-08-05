@@ -1,7 +1,7 @@
 <div id="blue_bg">
   <p><div id="contentblue">
-<p>  We are delighted that you have chosen to take advantage of our Toronto Attractions site which offers discounted tickets to exciting local attractions.</p><p> Please select tickets to attractions that you find interesting the tickets will be given to you and charged to your room account when you arrive at the hotel. </p><p>A confirmation email will be sent to you listing the tickets you have ordered. <br>The details of your order are listed below.
-	</p>
+	<p>  We are delighted that you have chosen to take advantage of our Toronto Attractions site which offers discounted tickets to exciting local attractions.</p><p> Please select tickets to attractions that you find interesting the tickets will be given to you and charged to your room account when you arrive at the hotel. </p><p>A confirmation email will be sent to you listing the tickets you have ordered. <br>The details of your order are listed below.
+		</p>
 
 <div id="titlegen"></div>
 
@@ -61,9 +61,9 @@
 				<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %> 
 				<%= image_submit_tag("add.gif")%>
 			<% end %>
-			<% if attraction.optional_field_name %>
+			<% if attraction.optional_field_price %>
 				<% form_tag(:action => "add_attraction_to_cart_o", :id => attraction) do %>
-					<%= attraction.optional_field_name %><%= number_to_currency(attraction.optional_field_price )  %>
+					<%= attraction.optional_field_name %> <%= number_to_currency(attraction.optional_field_price )  %>
 					<br><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>" %> 
 					<%= image_submit_tag("add.gif")%>
 				<% end %>
