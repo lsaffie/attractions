@@ -200,12 +200,12 @@ img {
 border: 0;
 }
 #order_info {
-margin-left: 25%;
-width: 50%;
+margin-left: 20%;
+width: 60%;
 margin-top: 10px;
 }
 #order_info p {
-padding-left: 30%;
+padding-left: 35%;
 }
 
 #contentblue {
@@ -230,7 +230,7 @@ padding-top: 0px;
 
 #cart_name {
 float:left;
-width: 70%;
+width: 75%;
 }
 
 #subtotal {
