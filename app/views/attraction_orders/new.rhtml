@@ -10,7 +10,7 @@
 <p style="color: green"><%= flash[:notice] %></p>
 	<% if @cart.items[0] %>
 		<% for cart in @cart.items %>
-		<div id="cart_name"><%= cart.quantity %> x <%= cart.name %> </div><div id="subtotal">Subtotal: <%= number_to_currency(cart.price) %></div>
+		<div id="cart_name"><%= cart.quantity %> x <%= cart.name %> </div><div id="subtotal"><%= number_to_currency(cart.price) %></div>
 		<% end %>
 		<p><div id="total">Total: <%= number_to_currency(@cart.total_price) %></div></p>
 	<% end %>

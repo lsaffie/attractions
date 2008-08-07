@@ -200,8 +200,12 @@ img {
 border: 0;
 }
 #order_info {
-margin-left: 300px;
+margin-left: 25%;
+width: 50%;
 margin-top: 10px;
+}
+#order_info p {
+padding-left: 30%;
 }
 
 #contentblue {
@@ -226,18 +230,18 @@ padding-top: 0px;
 
 #cart_name {
 float:left;
-width: 75%;
+width: 70%;
 }
 
 #subtotal {
-float: left;
-width: 25%;
+float: right;
+width: 20%
+padding-left: 200px;
 }
 
 #total {
 float: right;
 font-weight: bold;
-width: 25%;
 }
 #content_checkout {
 font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;

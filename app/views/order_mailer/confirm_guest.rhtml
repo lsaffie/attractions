@@ -1,4 +1,11 @@
-Confirmation Email
+Thank you for choosing to stay at the Renaissance Toronto Hotel Downtown by Marriott.<br>
+ We are delighted that you have chosen to take advantage of our Toronto Attractions order system which offers discounted tickets to exciting local attractions. The details of your order are listed below.<br>
+
+Please save or print this email and should your plans change please let us know by clicking on the link below and we will change or cancel your order. Remember you are only charged upon pick up of the tickets when you check in.
+
+Thank you again for choosing Renaissance.
+
+Confirmation:
 
 Guest Name: <%= @name %> 
 Arrival Date:<%= @arrival_date %> 
@@ -10,6 +17,11 @@ Ordered Tickets:
 <%= item.attraction_quantity %> x <%= item.attraction_name %> <%= number_to_currency(item.attraction_price) %>
 <% end %>
 Total: <%= number_to_currency(@total) %>
+
+
+Please email any changes or cancelations to attractions@renaissancetoronto.com
+
+Thank you.
 
 
 
