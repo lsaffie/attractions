@@ -41,7 +41,7 @@
 				
 			</div></td>
 			
-			<td class="comment"><%= truncate(textilize(attraction.additional_info), 150) %> 
+			<td class="comment"><%= truncate(textilize(attraction.additional_info), 250) %> 
 <%= link_to("read more...", {:action => "more", :id => attraction}) %> </td>
 			
 			<% form_tag(:action => "add_attraction_to_cart_a", :id => attraction) do %>
