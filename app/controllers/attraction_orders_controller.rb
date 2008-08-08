@@ -140,7 +140,6 @@ class AttractionOrdersController < ApplicationController
     @order = AttractionOrder.new(params[:attraction_order])
     @order.add_line_items_from_cart(@cart)
     @order.set_total(@order)
-    @order.save
     if @order.save
       OrderMailer.deliver_confirm_admin(@order,@cart)
       OrderMailer.deliver_confirm_guest(@order,@cart)

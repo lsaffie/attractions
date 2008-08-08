@@ -20,7 +20,7 @@
 	<p>You've Ordered:</p>
 	<% if @cart.items[0] %>
 		<% for cart in @cart.items %>
-		<div id="cart_name_checkout"><%= cart.quantity %> x <%= cart.name %></div><div id="subtotal_checkout"> Subtotal: <%= number_to_currency(cart.price) %></div>
+		<div id="cart_name_checkout"><%= cart.quantity %> x <%= cart.name %></div><div id="subtotal_checkout"> <%= number_to_currency(cart.price) %></div>
 		<% end %>
 		<div id="total_checkout">Total: <%= number_to_currency(@cart.total_price) %></div>
 	<% end %>

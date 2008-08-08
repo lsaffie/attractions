@@ -315,3 +315,6 @@ height: 20px;
 .mceToolbarTop {
 height: 1px;
 }
+.ticket input {
+vertical-align: top;
+}
