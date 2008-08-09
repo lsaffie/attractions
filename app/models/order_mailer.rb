@@ -9,9 +9,9 @@ class OrderMailer < ActionMailer::Base
     @body["telephone"] =order.telephone  
     @body["items"] = order.attraction_line_items
     @body["total"] = cart.total_price
-    #@recipients = 'mive@renaissancetoronto.com'
-    @recipients = 'luis.saffie@gmail.com'
-    @from = 'testing@dfdsolutions.com'
+    @recipients = 'mive@renaissancetoronto.com'
+    #@recipients = 'luis.saffie@gmail.com'
+    @from = 'renaissance@renaissancetoronto.com'
     #@sent_on    = sent_at
     @headers    = {}
   end
@@ -27,7 +27,7 @@ class OrderMailer < ActionMailer::Base
     @body["total"] = cart.total_price
     #@recipients = 'jose_luisu@hotmail.com'
     @recipients = order.email
-    @from = 'testing@dfdsolutions.com'
+    @from = 'renaissance@renaissancetoronto.com'
     #@sent_on    = sent_at
     @headers    = {}
   end
